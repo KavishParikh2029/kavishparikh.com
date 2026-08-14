@@ -1,0 +1,132 @@
+DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Volunteering profile for Aayush Parikh.">
+  <title>Volunteering | Aayush Parikh</title>
+  <link href="https://fonts.googleapis.com/css2?family=Clash+Display:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+</head>
+<body>
+  <div id="scrollProgress"></div>
+  <header>
+    <button id="themeToggle" title="Toggle Light/Dark Mode" aria-label="Toggle Light and Dark Mode">☀️</button>
+    <h1>Aayush Parikh</h1>
+    <nav class="top-buttons">
+      <a href="index.html" class="button">Home</a>
+      <a href="tennis.html" class="button">Tennis</a>
+      <a href="academics.html" class="button">Academics</a>
+      <a href="volunteering.html" class="button active">Volunteering</a>
+      <a href="extracurriculars.html" class="button">Extracurriculars</a>
+      <a href="contact.html" class="button">Contact</a>
+      <a href="Aayush_Parikh_Resume.pdf" target="_blank" class="button" style="border-color: var(--neon-cyan); color: var(--neon-cyan);">Resume ↓</a>
+    </nav>
+  </header>
+ 
+  <main>
+    <h2 class="reveal">Community Leadership</h2>
+    <div class="card-grid reveal">
+      <div class="card">
+        <img src="images/donation1.jpg" alt="Children in Angola with donated tennis rackets" class="card-img">
+        <h3>Director, First Racquet NGO</h3>
+        <p>Giving back through tennis has been one of the most meaningful parts of my life. I founded and led the Austin branch of an international tennis nonprofit. I have organized successful tournaments with multiple draws of young kids eager to play for the charity.</p>
+        <a href="https://firstracquet.org" target="_blank" class="button" style="display: inline-block; padding: 0.5rem 1rem; border: 1px solid var(--neon-cyan); border-radius: 20px; margin-top: 1rem;">Click here for more details ↗</a>
+      </div>
+     
+      <div class="card">
+        <img src="images/donation2.jpg" alt="Young boys in Angola holding their new tennis rackets" class="card-img">
+        <h3>Global Impact</h3>
+        <p><strong>Impact:</strong> We gathered boxes of rackets, shoes, clothing, strings, and balls, raising over $2500 and collecting 300+ tennis equipment donations for underserved youth in Angola, Africa. Whether I'm coordinating volunteers or sorting gear, I'm reminded that small actions can have a big impact when done with purpose.</p>
+      </div>
+    </div>
+
+    <h2 class="reveal" style="margin-top: 2rem;">Other Initiatives</h2>
+    <div class="card reveal">
+      <h3>Community Service</h3>
+      <ul>
+        <li><strong>National Junior Honor Society:</strong> Completed 80+ volunteer hours through school community service initiatives.</li>
+        <li><strong>Senior Care Volunteer:</strong> Provided support and companionship at The Waterford at Round Rock (2020-2023).</li>
+        <li><strong>Boy Scouts / Cub Scouts:</strong> Long-term commitment to community service and outdoor leadership (2013-2020).</li>
+      </ul>
+    </div>
+  </main>
+
+  <footer style="text-align: center; padding: 3rem; color: var(--text-muted); margin-top: auto; border-top: 1px solid var(--glass-border);">© 2026 Aayush Parikh. All rights reserved.</footer>
+  <button id="backToTop" title="Back to top" aria-label="Scroll back to top">↑</button>
+
+  <script>
+    const themeToggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    html.setAttribute('data-theme', savedTheme);
+    themeToggle.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+   
+    themeToggle.addEventListener('click', () => {
+      const newTheme = html.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+      html.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+      themeToggle.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+    });
+    const backToTopButton = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => backToTopButton.classList.toggle('show', window.scrollY > 300));
+    backToTopButton.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+   
+    window.addEventListener('scroll', () => {
+      const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      document.getElementById('scrollProgress').style.width = scrolled + '%';
+    });
+
+    const revealElements = document.querySelectorAll('.reveal');
+    const revealOptions = { threshold: 0.15, rootMargin: "0px 0px -50px 0px" };
+    const revealOnScroll = new IntersectionObserver(function(entries, observer) {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('active');
+        observer.unobserve(entry.target);
+      });
+    }, revealOptions);
+    revealElements.forEach(el => revealOnScroll.observe(el));
+
+    // Refined Dynamic Lightbox Logic
+    const lightbox = document.createElement('div');
+    lightbox.id = 'lightbox-modal';
+    lightbox.innerHTML = `<button id="lightbox-close" aria-label="Close modal">×</button><div id="lightbox-body"></div>`;
+    document.body.appendChild(lightbox);
+   
+    const lightboxBody = document.getElementById('lightbox-body');
+
+    const expandables = document.querySelectorAll('.card-img, .image-frame img, table');
+    expandables.forEach(el => {
+      el.classList.add('expandable');
+      el.addEventListener('click', () => {
+        lightboxBody.innerHTML = '';
+        const clone = el.cloneNode(true);
+        clone.classList.remove('expandable', 'reveal', 'active');
+        clone.classList.add('lightbox-content');
+        lightboxBody.appendChild(clone);
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    const closeLightbox = () => {
+      lightbox.classList.remove('active');
+      setTimeout(() => { lightboxBody.innerHTML = ''; }, 400);
+      document.body.style.overflow = '';
+    };
+
+    lightbox.addEventListener('click', () => {
+      if (window.getSelection().toString().length > 0) return;
+      closeLightbox();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && lightbox.classList.contains('active')) closeLightbox();
+    });
+  </script>
+</body>
+</html>
