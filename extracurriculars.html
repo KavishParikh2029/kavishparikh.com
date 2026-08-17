@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Extracurricular activities of Aayush Parikh.">
-  <title>Extracurriculars | Aayush Parikh</title>
+  <meta name="description" content="Extracurricular activities of Kavish Parikh.">
+  <title>Extracurriculars | Kavish Parikh</title>
   <link href="https://fonts.googleapis.com/css2?family=Clash+Display:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -13,7 +13,7 @@
   <div id="scrollProgress"></div>
   <header>
     <button id="themeToggle" title="Toggle Light/Dark Mode" aria-label="Toggle Light and Dark Mode">☀️</button>
-    <h1>Aayush Parikh</h1>
+    <h1>Kavish Parikh</h1>
     <nav class="top-buttons">
       <a href="index.html" class="button">Home</a>
       <a href="tennis.html" class="button">Tennis</a>
@@ -21,7 +21,7 @@
       <a href="volunteering.html" class="button">Volunteering</a>
       <a href="extracurriculars.html" class="button active">Extracurriculars</a>
       <a href="contact.html" class="button">Contact</a>
-      <a href="Aayush_Parikh_Resume.pdf" target="_blank" class="button" style="border-color: var(--neon-cyan); color: var(--neon-cyan);">Resume ↓</a>
+      <a href="Kavish_Parikh_Resume.pdf" target="_blank" class="button" style="border-color: var(--neon-green); color: var(--neon-green);">Resume ↓</a>
     </nav>
   </header>
  
@@ -41,19 +41,21 @@
     <h2 class="reveal">Hobbies & Interests</h2>
     <div class="card-grid reveal">
       <div class="card">
-        <img src="images/headshot.jpg" alt="Aayush in a slot canyon" class="card-img">
+        <img src="images/headshot.jpg" alt="Kavish in a slot canyon" class="card-img">
         <h3>Outdoor Adventures</h3>
         <p>I love hiking and camping, especially challenging trips like summiting Angel's Landing in Zion National Park or camping in freezing temperatures with my dad. These outdoor adventures test both physical endurance and mental resilience.</p>
       </div>
       <div class="card">
-        <img src="images/orchestra.jpg" alt="Aayush with his violin" class="card-img">
+        <img src="images/orchestra.jpg" alt="Kavish with his violin" class="card-img">
         <h3>Mental Puzzles & Music</h3>
         <p>At home, I often unwind by reading fiction or timing myself on the Rubik's cube (Personal Best: 32 seconds). I also have 4 years of Spanish, play as a violinist in the orchestra, and am a recreational pianist.</p>
       </div>
     </div>
   </main>
 
-  <footer style="text-align: center; padding: 3rem; color: var(--text-muted); margin-top: auto; border-top: 1px solid var(--glass-border);">© 2026 Aayush Parikh. All rights reserved.</footer>
+  <footer>
+    <p>© 2026 Kavish Parikh. All rights reserved.</p>
+  </footer>
   <button id="backToTop" title="Back to top" aria-label="Scroll back to top">↑</button>
 
   <script>
@@ -91,7 +93,6 @@
     }, revealOptions);
     revealElements.forEach(el => revealOnScroll.observe(el));
 
-    // Refined Dynamic Lightbox Logic
     const lightbox = document.createElement('div');
     lightbox.id = 'lightbox-modal';
     lightbox.innerHTML = `<button id="lightbox-close" aria-label="Close modal">×</button><div id="lightbox-body"></div>`;
