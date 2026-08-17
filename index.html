@@ -22,24 +22,24 @@
       <a href="volunteering.html" class="button">Volunteering</a>
       <a href="extracurriculars.html" class="button">Extracurriculars</a>
       <a href="contact.html" class="button">Contact</a>
-      <a href="Kavish_Parikh_Resume.pdf" target="_blank" class="button" style="border-color: var(--neon-cyan); color: var(--neon-cyan);">Resume ↓</a>
+      <a href="Kavish_Parikh_Resume.pdf" target="_blank" class="button" style="border-color: var(--neon-green); color: var(--neon-green);">Resume ↓</a>
     </nav>
   </header>
  
   <main>
     <div class="hero-wrapper reveal">
       <div class="hero-text">
-        <h2 style="font-size: 3rem; margin-bottom: 1rem;">Engineering the Future.</h2>
-        <p style="font-size: 1.2rem;">Hi, I'm Kavish Parikh. I am a sophomore at Westwood High IB World School with a deep passion for STEM, dedicated to exploring complex problems through engineering and mathematics.</p>
+        <h2 style="font-size: 3.2rem; margin-bottom: 1rem;">Engineering the Future.</h2>
+        <p style="font-size: 1.15rem; max-width: 600px;">Hi, I'm Kavish Parikh. I am a sophomore at Westwood High IB World School with a deep passion for STEM, dedicated to exploring complex problems through engineering and mathematics.</p>
        
-        <p style="font-size: 1.2rem;">My dad, a Senior Digital Designer for Mixed-Signal SoCs, inspired my love for problem-solving early on. From building robots in middle school to optimizing traffic models today, I've learned that patience, precision, and resilience drive true success.</p>
+        <p style="font-size: 1.05rem; max-width: 600px;">My dad, a Senior Digital Designer for Mixed-Signal SoCs, inspired my love for problem-solving early on. From building robots in middle school to optimizing traffic models today, I've learned that patience, precision, and resilience drive true success.</p>
        
-        <a href="academics.html" class="button" style="display: inline-block; background: var(--accent-gradient); color: white; padding: 0.8rem 2rem; border-radius: 30px; font-weight: 600; margin-top: 1rem; box-shadow: 0 4px 15px rgba(0, 242, 254, 0.3);">Explore My Work</a>
+        <a href="academics.html" class="button primary">Explore My Work</a>
       </div>
      
       <div class="hero-visual">
-        <div class="image-frame" style="max-width: 400px; margin: 0 auto; border-radius: 20px; overflow: hidden;">
-          <img src="images/2023_07_24_kabbage-21824998.png" alt="Headshot of Kavish Parikh" style="width: 100%; height: auto; display: block; border-radius: inherit;">
+        <div class="image-frame">
+          <img src="images/2023_07_24_kabbage-21824998.png" alt="Headshot of Kavish Parikh">
         </div>
       </div>
     </div>
@@ -48,23 +48,23 @@
       <div class="card">
         <h3>Academics & Research</h3>
         <p>1570 SAT | 5.49 Weighted GPA. Published researcher in the Oxford JSS for Adaptive Traffic Congestion Optimization via Machine Learning.</p>
-        <a href="academics.html">View Academics & Internships →</a>
+        <a href="academics.html" class="card-link">View Academics →</a>
       </div>
       <div class="card">
         <h3>Athletics: Tennis</h3>
         <p>Two-year Team Captain, State Championship Winner, and Top 25 Junior Player in Texas. Sponsored by Yonex, Wilson, and Adidas.</p>
-        <a href="tennis.html">View Tennis Record →</a>
+        <a href="tennis.html" class="card-link">View Tennis Record →</a>
       </div>
       <div class="card">
         <h3>Leadership & Service</h3>
         <p>Director of First Racquet Austin: raised over $2,500 and collected 300+ tennis equipment donations for youth in Angola.</p>
-        <a href="volunteering.html">View Volunteering →</a>
+        <a href="volunteering.html" class="card-link">View Volunteering →</a>
       </div>
     </div>
   </main>
 
-  <footer style="text-align: center; padding: 3rem; color: var(--text-muted); margin-top: auto; border-top: 1px solid var(--glass-border);">
-    © 2026 Kavish Parikh. All rights reserved.
+  <footer>
+    <p>© 2026 Kavish Parikh. All rights reserved.</p>
   </footer>
   <button id="backToTop" title="Back to top" aria-label="Scroll back to top">↑</button>
 
@@ -107,7 +107,7 @@
     }, revealOptions);
     revealElements.forEach(el => revealOnScroll.observe(el));
 
-    // Refined Dynamic Lightbox Logic
+    // Lightbox
     const lightbox = document.createElement('div');
     lightbox.id = 'lightbox-modal';
     lightbox.innerHTML = `<button id="lightbox-close" aria-label="Close modal">×</button><div id="lightbox-body"></div>`;
@@ -135,7 +135,6 @@
       document.body.style.overflow = '';
     };
 
-    // Clicking anywhere closes it, unless highlighting text
     lightbox.addEventListener('click', () => {
       if (window.getSelection().toString().length > 0) return;
       closeLightbox();
